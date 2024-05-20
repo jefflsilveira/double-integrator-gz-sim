@@ -1,0 +1,9 @@
+#!/bin/sh
+echo "Sourcing the Gazebo setup script"
+# Source the Gazebo setup script
+. /usr/share/gazebo/setup.sh
+
+echo "Adding custom plugin to Gazebo plugin path"
+
+# Add custom gazebo plugin path to GAZEBO_PLUGIN_PATH
+ament_prepend_unique_value GAZEBO_PLUGIN_PATH "$COLCON_CURRENT_PREFIX/lib"

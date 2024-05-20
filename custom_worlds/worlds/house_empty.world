@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+  <sdf version='1.6'>
+    <world name='default'>
+      <include>
+        <uri>model://sun</uri>
+      </include>
+
+      <model name="house">
+        <include>
+            <uri>model://house</uri>
+        </include>
+        <pose frame="">-1 -6 0 0 0 0</pose>
+	    </model>
+
+      <model name='ground_plane'>
+        <static>1</static>
+        <link name='link'>
+          <mu1>0.0</mu1>
+          <mu2>0.0</mu2>
+          <collision name='collision'>
+            <geometry>
+              <plane>
+                <normal>0 0 1</normal>
+                <size>100 100</size>
+              </plane>
+            </geometry>
+            <surface>
+              <friction>
+                <ode>
+                  <mu>0</mu>
+                  <mu2>0</mu2>
+                </ode>
+                <torsional>
+                  <ode/>
+                </torsional>
+              </friction>
+              <contact>
+                <ode/>
+              </contact>
+              <bounce/>
+            </surface>
+            <max_contacts>10</max_contacts>
+          </collision>
+          <visual name='visual'>
+            <cast_shadows>0</cast_shadows>
+            <geometry>
+              <plane>
+                <normal>0 0 1</normal>
+                <size>100 100</size>
+              </plane>
+            </geometry>
+            <material>
+              <script>
+                <uri>file://media/materials/scripts/gazebo.material</uri>
+                <name>Gazebo/Grey</name>
+              </script>
+            </material>
+          </visual>
+          <self_collide>0</self_collide>
+          <enable_wind>0</enable_wind>
+          <kinematic>0</kinematic>
+        </link>
+      </model>
+
+
+      <gui fullscreen='0'>
+        <camera name='user_camera'>
+          <pose>4.99689 -3.44581 19.3736 3.14159 1.57079 3.14159</pose>
+          <view_controller>ortho</view_controller>
+          <projection_type>orthographic</projection_type>
+        </camera>
+      </gui>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <gui fullscreen='0'>
+        <camera name='user_camera'>
+          <pose frame=''>1.75 2.55 20 0 1.37 0</pose>
+          <view_controller>orbit</view_controller>
+          <projection_type>perspective</projection_type>
+        </camera>
+      </gui>
+
+    </world>
+  </sdf>

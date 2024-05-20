@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo>
+        <plugin name="gazebo_ros_force_lim" filename="libgazebo_ros_force_lim.so">
+            <ros>
+                <remapping>gazebo_ros_force_lim:=force</remapping>
+            </ros>
+            <link_name>base_footprint</link_name>
+            <force_frame>world</force_frame>
+            
+            <!-- Linear velocity thresholds for each direction -->
+            <linear_velocity_pos_threshold_x>2.0</linear_velocity_pos_threshold_x>
+            <linear_velocity_pos_threshold_y>2.0</linear_velocity_pos_threshold_y>
+            <linear_velocity_pos_threshold_z>2.0</linear_velocity_pos_threshold_z>
+            <linear_velocity_neg_threshold_x>-2.0</linear_velocity_neg_threshold_x>
+            <linear_velocity_neg_threshold_y>-2.0</linear_velocity_neg_threshold_y>
+            <linear_velocity_neg_threshold_z>-2.0</linear_velocity_neg_threshold_z>
+            <!-- Angular velocity thresholds for each direction -->
+            <angular_velocity_pos_threshold_x>2.0</angular_velocity_pos_threshold_x>
+            <angular_velocity_pos_threshold_y>2.0</angular_velocity_pos_threshold_y>
+            <angular_velocity_pos_threshold_z>2.0</angular_velocity_pos_threshold_z>
+            <angular_velocity_neg_threshold_x>-2.0</angular_velocity_neg_threshold_x>
+            <angular_velocity_neg_threshold_y>-2.0</angular_velocity_neg_threshold_y>
+            <angular_velocity_neg_threshold_z>-2.0</angular_velocity_neg_threshold_z>
+        </plugin>
+    
+    
+        <plugin name="libgazebo_ros_p3d" filename="libgazebo_ros_p3d.so">
+            <ros>
+                <remapping>odom:=odom</remapping>
+            </ros>
+            <frame_name>odom</frame_name>
+            <body_name>base_footprint</body_name>
+            <update_rate>200.0</update_rate>
+            <gaussian_noise>0.00</gaussian_noise>
+        </plugin>
+      </gazebo>
+
+
+</robot>

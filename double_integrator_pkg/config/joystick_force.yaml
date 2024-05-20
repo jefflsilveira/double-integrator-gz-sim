@@ -1,0 +1,22 @@
+joy_node:
+  ros__parameters:
+    device_id: 0
+    deadzone: 0.05
+    autorepeat_rate: 20.0
+
+joy_teleop:
+  ros__parameters:
+    force_push:
+      type: topic
+      interface_type: geometry_msgs/msg/Wrench
+      topic_name: force
+      deadman_buttons: [5, 4]
+      axis_mappings:
+        force-x:
+          axis: 1
+          scale: 1
+          offset: 0
+        force-y:
+          axis: 0
+          scale: 1
+          offset: 0
